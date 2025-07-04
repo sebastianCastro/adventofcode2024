@@ -1000,30 +1000,33 @@ location_ids = """
 25566   23322
 22377   46878
 """
-first_list = []
-second_list = []
+
 ids = location_ids.split()
-diff_list = []
-total_diff = 0
 
 
 def create_lists(locations):
+    first_list = []
+    second_list = []
     counter = 0
     for i in locations:
         if counter % 2 == 0:
-            first_list.append(i)
+            first_list.append(int(i))
             counter += 1
         else:
-            second_list.append(i)
+            second_list.append(int(i))
             counter += 1
     
     return first_list, second_list
 
-def sort_lists():
-    first_list.sort(), second_list.sort()
+my_first_list, my_second_list = create_lists(ids)
 
+def sort_lists(my_first_list, my_second_list):
+    my_first_list.sort(), my_second_list.sort()
 
-def find_diff():
+sort_lists(my_first_list, my_second_list)
+
+def find_diff(first_list, second_list):
+    diff_list = []
     y = 0
     for i in first_list:
         diff = int(i) - int(second_list[y])
@@ -1035,16 +1038,31 @@ def find_diff():
         y += 1
     return diff_list
 
-def find_total_diff():
+my_diffs = find_diff(my_first_list, my_second_list)
+
+def find_total_diff(my_diffs):
     total_diff = 0
-    for i in diff_list:
+    for i in my_diffs:
         total_diff = total_diff + i
-    print (total_diff)
+    return total_diff
 
+final_total = find_total_diff(my_diffs)
+print("The total difference is:", final_total)
 
+def calculate_similarity_score(first_list, second_list):
+    similar_score_list = []
+    counter = len (second_list) - 1
 
+    while counter > -1:
+        x = first_list.count(second_list[counter])
+        similar_score_list.append(second_list[counter] * x)
+        counter -= 1
+        
+    similar_score = 0
 
-create_lists(ids)
-sort_lists()
-find_diff()
-find_total_diff()
+    for number in similar_score_list:
+        similar_score += number
+    return similar_score
+
+final_similarity_score = calculate_similarity_score(my_first_list, my_second_list)
+print ('the similarity score is:', final_similarity_score)
