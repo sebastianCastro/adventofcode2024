@@ -1052,4 +1052,4 @@ def get_damper_reports(reports):
     return safe_reports
 
 damper_reports = get_damper_reports(unsafe_reports_list)
-print(f"Number of safe reports found: {safe_count + damper_reports}")
+print(f"Updated number of safe reports found: {safe_count + damper_reports}")
