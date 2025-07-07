@@ -1012,6 +1012,7 @@ def get_reports(raw_data):
 
 def find_safe_reports(reports_list):
     safe_reports = 0
+    unsafe_reports = []
     for report in reports_list:
         # A report is safe if it's consistently going up or down AND the steps aren't too big or too small
         is_increasing = all(x < y for x, y in zip(report, report[1:]))
@@ -1020,9 +1021,35 @@ def find_safe_reports(reports_list):
         is_safe = (is_increasing or is_decreasing) and has_reasonable_steps
         if is_safe:
             safe_reports += 1
-    return safe_reports
-
+        else:
+            unsafe_reports.append(report)
+    return safe_reports, unsafe_reports
 
 organized = get_reports(raw_reports)
-safe_count = find_safe_reports(organized)
+safe_count, unsafe_reports_list = find_safe_reports(organized)
 print(f"Number of safe reports found: {safe_count}")
+
+def get_damper_reports(reports):
+    safe_reports = 0
+    for report in reports:
+        # Loop through each INDEX of the report
+        for i in range(len(report)):
+            # 1. Make a fresh copy for each removal attempt
+            temp_list = report.copy()
+
+            # 2. Pop the item at the current INDEX `i`
+            temp_list.pop(i)
+
+            is_increasing = all(x < y for x, y in zip(temp_list, temp_list[1:]))
+            is_decreasing = all(x > y for x, y in zip(temp_list, temp_list[1:]))
+            has_reasonable_steps = all(1 <= abs(x - y) <= 3 for x, y in zip(temp_list, temp_list[1:]))
+            is_safe = (is_increasing or is_decreasing) and has_reasonable_steps
+            
+            if is_safe:
+                safe_reports += 1
+                break  # Move to the next report once a fix is found
+
+    return safe_reports
+
+damper_reports = get_damper_reports(unsafe_reports_list)
+print(f"Number of safe reports found: {safe_count + damper_reports}")
