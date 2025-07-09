@@ -10,45 +10,38 @@ from()#,why()~& ;#:mul(731,521)*how()} do()mul(399,167)from()mul(71,499)how()fro
 pattern = r'(mul)(\()([0-9]{1,3})(\,)([0-9]{1,3})(\))'
 txt = re.findall(pattern, corrupted_data_string)
 
-
-temp_memory = ''
-mul_list = []
-for mul in txt:
-    # print (i)
-    for i in mul:
-        temp_memory += f'{i}'
-    mul_list.append(temp_memory)
+def clean_corrupted_data(data_string):
     temp_memory = ''
-# print(mul_list)
+    multiplication_list = []
+    for multiplication in data_string:
+        # print (i)
+        for character in multiplication:
+            temp_memory += f'{character}'
+        multiplication_list.append(temp_memory)
+        temp_memory = ''
+    return multiplication_list
 
-num_pattern = r'([0-9]{1,3})(\,)([0-9]{1,3})'
-mul = []
-for i in mul_list:
-    i.split(',')
-    x = re.findall(num_pattern, i)
-    mul.append(x)
-# print(mul)
+clean_data_string = clean_corrupted_data(txt)
 
-num_list = []
-for i in mul:
-    for j in i:
-        for x in j:
-            if x == ',':
-                continue
-            else:
-                num_list.append(x)
-# print(num_list)
+def get_only_numbers (paired_numbers_list):
+    pattern = r'([0-9]{1,3})'
+    multiplication_list = []
+    for i in paired_numbers_list:
+        number = re.findall(pattern, i)
+        multiplication_list.append(number)
+    return multiplication_list
 
-res = [(int(num_list[i]), int(num_list[i + 1])) for i in range(0, len(num_list) - 1, 2)]
+paired_numbers = get_only_numbers(clean_data_string)
 
-# print (res)
+numbers_list = [[int(j) for j in pair] for pair in paired_numbers]
 
-f_list = []
-for x, y in res:
-    f_list.append(x*y)
-# print(f_list)
+def get_mul_res_list(multiplication):
+    temp_list = []
+    for x, y in multiplication:
+        temp_list.append(x*y)
+    return temp_list
 
-f_res = 0
-for i in f_list:
-    f_res += i
-print(f_res)
+res_list = get_mul_res_list(numbers_list)
+
+total = sum(res_list)
+print(total)
