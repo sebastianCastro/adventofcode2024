@@ -1,6 +1,20 @@
-# Advent of Code 2024 SolutionsWelcome to my Advent of Code 2024 solutions repository! This repository contains my attempts and solutions for the Advent of Code challenges.## About Advent of Code[Advent of Code](https://adventofcode.com/" title="null) is an annual online event that presents a series of small programming puzzles for a variety of skill sets and skill levels that can be solved in any programming language. It's a great way to practice problem-solving, learn new languages, and brush up on algorithms.Each day in December, from the 1st to the 25th, a new two-part puzzle is released. The goal is to solve both parts for each day.## Repository StructureBased on your current repository, it looks like you're organizing your solutions with files like day1.py, day2.py, etc., directly in the root. This is a perfectly valid and common approach!Here's an updated representation of your repository structure:.
+# Advent of Code 2024 Solutions
+Welcome to my Advent of Code 2024 solutions repository! This repository contains my attempts and solutions for the Advent of Code challenges.
+## About Advent of Code
+[Advent of Code](https://adventofcode.com/" title="null) is an annual online event that presents a series of small programming puzzles for a variety of skill sets and skill levels that can be solved in any programming language. It's a great way to practice problem-solving, learn new languages, and brush up on algorithms.Each day in December, from the 1st to the 25th, a new two-part puzzle is released. The goal is to solve both parts for each day.
+## Repository Structure
 ├── day1.py
 ├── day2.py
-├── day3.py
+├── day3.
+├── ...
 └── README.md
-dayXX.py: The Python code solving the puzzle for that day (e.g., day1.py, day2.py).input.txt (or similar): You might want to add separate input files for each day, or embed the input directly in your Python scripts. If you add separate input files, you'd typically name them dayXX_input.txt or place them in a dedicated inputs/ folder.## How to Run SolutionsTo run a specific day's solution (assuming you're using Python as observed in your repository):Ensure you have Python installed.Navigate to the root of your repository in your terminal.Execute the solution file. For example:For Day 1: python day1.pyFor Day 2: python day2.pyIf you decide to use separate input.txt files for each day, make sure your Python scripts are set up to read from them correctly (e.g., with open('day1_input.txt', 'r') as f:).## My ApproachI aim to solve these puzzles efficiently and clearly. My primary language for these challenges will be Python, as seen in the repository. I'll also try to include comments in my code to explain my logic where necessary.## ContributionsThis is a personal repository for my Advent of Code journey. While I appreciate interest, I'm not actively seeking external contributions for solutions. However, if you find any issues or have suggestions for improving the README itself, feel free to open an issue!## LicenseThis project is open-sourced under the MIT License. See the LICENSE file for more details (if applicable, otherwise you might want to add one).Happy coding, and may your Advent of Code journey be filled with interesting puzzles!
+## How to Run Solutions
+To run a specific day's solution: 
+1. Ensure you have Python installed.
+2. Navigate to the root of your repository in your terminal.
+3. Execute the solution file. For example:
+    - For Day 1: python day1.py
+    - For Day 2: python day2.py
+If you decide to use separate input files for each day, make sure your Python scripts are set up to read from them correctly.
+## My Approach
+I aim to solve these puzzles efficiently and clearly. My primary language for these challenges will be Python, as seen in the repository. I'll also try to include comments in my code to explain my logic where necessary.
