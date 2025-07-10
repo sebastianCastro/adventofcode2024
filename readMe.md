@@ -3,11 +3,13 @@ Welcome to my Advent of Code 2024 solutions repository! This repository contains
 ## About Advent of Code
 [Advent of Code](https://adventofcode.com/") is an annual online event that presents a series of small programming puzzles for a variety of skill sets and skill levels that can be solved in any programming language. It's a great way to practice problem-solving, learn new languages, and brush up on algorithms.Each day in December, from the 1st to the 25th, a new two-part puzzle is released. The goal is to solve both parts for each day.
 ## Repository Structure
-`├── day1.py`
-`├── day2.py`
-`├── day3.`
-`├── ...`
-`└── README.md`
+```
+├── day1.py
+├── day2.py
+├── day3.
+├── ...
+└── README.md
+```
 ## How to Run Solutions
 To run a specific day's solution: 
 1. Ensure you have Python installed.
